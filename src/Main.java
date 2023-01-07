@@ -16,6 +16,9 @@ public class Main {
         System.out.println("human2.surname = " + human2.getSurname());
         book2.setYear(2020);
         System.out.println("book2.getYear() = " + book2.getYear());
-
+        System.out.println(book1);
+        System.out.println(human1);
+        System.out.println(book1.equals(book2));
+        System.out.println(human1.equals(human2));
     }
 }
