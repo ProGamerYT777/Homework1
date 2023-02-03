@@ -8,6 +8,7 @@ public class Transport {
     private String color;
     private int maxSpeed;
 
+
     public String getBrand() {
         return brand;
     }

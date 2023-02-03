@@ -48,6 +48,7 @@ public class Car extends Transport{
         this.tires = tires;
     }
 
+
     public Car(String brand, String model, int productionYear, String productionCountry, String color, int maxSpeed, String bodyType, int numberOfSeats) {
         super(brand, model, productionYear, productionCountry, color, maxSpeed);
         if (engineVolume <= 0) {
