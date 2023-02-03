@@ -1,34 +1,12 @@
 package transport;
 
-public class Car {
-    private final String brand;
-    private final String model;
+public class Car extends Transport{
     private double engineVolume;
-    private String color;
-    private final int productionYear;
-    private final String productionCountry;
     private String transmission;
     private final String bodyType;
     private int registrationNumber;
     private final int numberOfSeats;
     private boolean tires;
-
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public int getProductionYear() {
-        return productionYear;
-    }
-
-    public String getProductionCountry() {
-        return productionCountry;
-    }
 
     public String getBodyType() {
         return bodyType;
@@ -40,10 +18,6 @@ public class Car {
 
     public double getEngineVolume() {
         return engineVolume;
-    }
-
-    public String getColor() {
-        return color;
     }
 
     public String getTransmission() {
@@ -62,10 +36,6 @@ public class Car {
         this.engineVolume = engineVolume;
     }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
-
     public void setTransmission(String transmission) {
         this.transmission = transmission;
     }
@@ -78,36 +48,12 @@ public class Car {
         this.tires = tires;
     }
 
-    public Car(String brand, String model, double engineVolume, String color, int productionYear, String productionCountry, String transmission, String bodyType, int registrationNumber, int numberOfSeats, boolean tires) {
-        if (brand == "" || brand == null) {
-            this.brand = "default";
-        } else {
-            this.brand = brand;
-        }
-        if (model == "" || model == null) {
-            this.model = "default";
-        } else {
-            this.model = model;
-        }
-        if (productionCountry == "" || productionCountry == null) {
-            this.productionCountry = "default";
-        } else {
-            this.productionCountry = productionCountry;
-        }
+    public Car(String brand, String model, int productionYear, String productionCountry, String color, int maxSpeed, String bodyType, int numberOfSeats) {
+        super(brand, model, productionYear, productionCountry, color, maxSpeed);
         if (engineVolume <= 0) {
             this.engineVolume = 1.5;
         } else {
             this.engineVolume = engineVolume;
-        }
-        if (color == "" || color == null) {
-            this.color = "White";
-        } else {
-            this.color = color;
-        }
-        if (productionYear <= 0) {
-            this.productionYear = 2000;
-        } else {
-            this.productionYear = productionYear;
         }
         if (transmission == "" || transmission == null) {
             this.transmission = "default";
@@ -153,12 +99,7 @@ public class Car {
     @Override
     public String toString() {
         return "Car{" +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", engineVolume=" + engineVolume +
-                ", color='" + color + '\'' +
-                ", productionYear=" + productionYear +
-                ", productionCountry='" + productionCountry + '\'' +
+                "engineVolume=" + engineVolume +
                 ", transmission='" + transmission + '\'' +
                 ", bodyType='" + bodyType + '\'' +
                 ", registrationNumber=" + registrationNumber +
