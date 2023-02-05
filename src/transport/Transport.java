@@ -1,13 +1,13 @@
 package transport;
 
-public class Transport {
+public abstract class Transport{
     private String brand;
     private String model;
-    private final int productionYear;
-    private final String productionCountry;
-    private String color;
-    private int maxSpeed;
+    private double engineCapacity;
 
+    public abstract void startMoving();
+
+    public abstract void finishTheMovement();
 
     public String getBrand() {
         return brand;
@@ -17,20 +17,8 @@ public class Transport {
         return model;
     }
 
-    public int getProductionYear() {
-        return productionYear;
-    }
-
-    public String getProductionCountry() {
-        return productionCountry;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public int getMaxSpeed() {
-        return maxSpeed;
+    public double getEngineCapacity() {
+        return engineCapacity;
     }
 
     public void setBrand(String brand) {
@@ -41,15 +29,11 @@ public class Transport {
         this.model = model;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setEngineCapacity(double engineCapacity) {
+        this.engineCapacity = engineCapacity;
     }
 
-    public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
-    }
-
-    public Transport(String brand, String model, int productionYear, String productionCountry, String color, int maxSpeed) {
+    public Transport(String brand, String model, double engineCapacity) {
         if (brand == "" || brand == null) {
             this.brand = "default";
         } else {
@@ -60,17 +44,10 @@ public class Transport {
         } else {
             this.model = model;
         }
-        this.productionYear = productionYear;
-        this.productionCountry = productionCountry;
-        if (color == "" || color == null) {
-            this.color = "default";
+        if (engineCapacity <= 0) {
+            this.engineCapacity = 1.5;
         } else {
-            this.color = color;
-        }
-        if (maxSpeed <= -1) {
-            this.maxSpeed = 0;
-        } else {
-            this.maxSpeed = maxSpeed;
+            this.engineCapacity = engineCapacity;
         }
     }
 
@@ -79,11 +56,15 @@ public class Transport {
         return "Transport{" +
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
-                ", productionYear=" + productionYear +
-                ", productionCountry='" + productionCountry + '\'' +
-                ", color='" + color + '\'' +
-                ", maxSpeed=" + maxSpeed +
+                ", engineCapacity=" + engineCapacity +
                 '}';
+    }
+
+    interface Competing {
+        void pitStop();
+        void bestLapTime();
+        void maximumSpeed();
+
     }
 }
 
