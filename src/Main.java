@@ -28,5 +28,7 @@ public class Main {
 
         System.out.println("Водитель " + driver1 + " управляет автомобилем " + car1 + " и будет участвовать в заезде");
 
+
+
     }
 }

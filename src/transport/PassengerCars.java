@@ -1,6 +1,6 @@
 package transport;
 
-public class PassengerCars extends Transport implements Transport.Competing {
+public class PassengerCars<T extends CategoryB> extends Transport implements Transport.Competing {
 
     @Override
     public void startMoving() {
