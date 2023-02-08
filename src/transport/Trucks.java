@@ -1,6 +1,8 @@
 package transport;
 
-public class Trucks<T extends CategoryC> extends Transport implements Transport.Competing {
+public class Trucks<R extends CategoryC> extends Transport implements Transport.Competing {
+
+    private R categoryC;
 
     @Override
     public void startMoving() {
@@ -14,6 +16,14 @@ public class Trucks<T extends CategoryC> extends Transport implements Transport.
 
     public Trucks(String brand, String model, double engineCapacity) {
         super(brand, model, engineCapacity);
+    }
+
+    public R getCategoryC() {
+        return categoryC;
+    }
+
+    public void setCategoryC(R categoryC) {
+        this.categoryC = categoryC;
     }
 
     @Override

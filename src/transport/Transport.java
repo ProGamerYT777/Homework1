@@ -1,6 +1,6 @@
 package transport;
 
-public abstract class Transport{
+public abstract class Transport {
     private String brand;
     private String model;
     private double engineCapacity;
@@ -32,6 +32,7 @@ public abstract class Transport{
     public void setEngineCapacity(double engineCapacity) {
         this.engineCapacity = engineCapacity;
     }
+
 
     public Transport(String brand, String model, double engineCapacity) {
         if (brand == "" || brand == null) {

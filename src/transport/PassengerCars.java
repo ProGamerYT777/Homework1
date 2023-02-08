@@ -2,6 +2,20 @@ package transport;
 
 public class PassengerCars<T extends CategoryB> extends Transport implements Transport.Competing {
 
+    private T categoryB;
+
+    public PassengerCars(String brand, String model, double engineCapacity) {
+        super(brand, model, engineCapacity);
+    }
+
+    public T getCategoryB() {
+        return categoryB;
+    }
+
+    public void setCategoryB(T categoryB) {
+        this.categoryB = categoryB;
+    }
+
     @Override
     public void startMoving() {
 
@@ -10,10 +24,6 @@ public class PassengerCars<T extends CategoryB> extends Transport implements Tra
     @Override
     public void finishTheMovement() {
 
-    }
-
-    public PassengerCars(String brand, String model, double engineCapacity) {
-        super(brand, model, engineCapacity);
     }
 
     @Override
