@@ -7,7 +7,6 @@ public class Main {
         PassengerCars<CategoryB> car3 = new PassengerCars<>("BMW",  "M6", 4.0);
         PassengerCars<CategoryB> car4 = new PassengerCars<>("BMW",  "M3", 2.0);
 
-//        PassengerCars<PassengerCars> car5 = new PassengerCars<>("BMW",  "M5", 3.0);
 
         Trucks<CategoryC> truck1 = new Trucks<>("Mercedes", "Actros",  5.0);
         Trucks<CategoryC> truck2 = new Trucks<>("Mercedes", "Axor",  4.5);
