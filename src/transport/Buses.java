@@ -1,8 +1,7 @@
 package transport;
 
-public class Buses<V extends CategoryD> extends Transport implements Transport.Competing {
+public class Buses extends Transport<CategoryD> implements Transport.Competing {
 
-    private V categoryD;
 
     @Override
     public void startMoving() {
@@ -18,13 +17,6 @@ public class Buses<V extends CategoryD> extends Transport implements Transport.C
         super(brand, model, engineCapacity);
     }
 
-    public V getCategoryD() {
-        return categoryD;
-    }
-
-    public void setCategoryD(V categoryD) {
-        this.categoryD = categoryD;
-    }
 
     @Override
     public void pitStop() {

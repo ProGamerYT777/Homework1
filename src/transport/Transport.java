@@ -1,9 +1,10 @@
 package transport;
 
-public abstract class Transport {
+public abstract class Transport<T extends Driver> {
     private String brand;
     private String model;
     private double engineCapacity;
+    private T driver;
 
     public abstract void startMoving();
 
@@ -33,6 +34,13 @@ public abstract class Transport {
         this.engineCapacity = engineCapacity;
     }
 
+    public T getDriver() {
+        return driver;
+    }
+
+    public void setDriver(T driver) {
+        this.driver = driver;
+    }
 
     public Transport(String brand, String model, double engineCapacity) {
         if (brand == "" || brand == null) {
