@@ -40,7 +40,7 @@ public class Trucks extends Transport<CategoryC> implements Transport.Competing 
         }
     }
 
-    public Trucks(String brand, String model, double engineCapacity) {
+    public Trucks(String brand, String model, double engineCapacity, Float typeOfLoadCapacity) {
         super(brand, model, engineCapacity);
     }
 

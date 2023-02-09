@@ -42,7 +42,7 @@ public class Buses extends Transport<CategoryD> implements Transport.Competing {
         }
     }
 
-    public Buses(String brand, String model, double engineCapacity) {
+    public Buses(String brand, String model, double engineCapacity, Integer typeOfCapacity) {
         super(brand, model, engineCapacity);
     }
 

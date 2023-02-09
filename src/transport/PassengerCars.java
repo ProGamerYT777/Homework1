@@ -2,9 +2,11 @@ package transport;
 
 public class PassengerCars extends Transport<CategoryB> implements Transport.Competing {
 
-    public PassengerCars(String brand, String model, double engineCapacity) {
+    public PassengerCars(String brand, String model, double engineCapacity, String bodyType) {
         super(brand, model, engineCapacity);
     }
+
+
 
     @Override
     public void getType() {
@@ -65,6 +67,8 @@ public class PassengerCars extends Transport<CategoryB> implements Transport.Com
     public void maximumSpeed() {
         System.out.println("Максимальная скорость - 150 км/ч");
     }
+
+
 
 
     }
