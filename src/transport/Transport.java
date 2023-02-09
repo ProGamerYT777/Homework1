@@ -60,6 +60,9 @@ public abstract class Transport<T extends Driver> {
         }
     }
 
+    public abstract void getType();
+    public abstract void printType();
+
     @Override
     public String toString() {
         return "Transport{" +
@@ -73,7 +76,6 @@ public abstract class Transport<T extends Driver> {
         void pitStop();
         void bestLapTime();
         void maximumSpeed();
-
     }
 }
 

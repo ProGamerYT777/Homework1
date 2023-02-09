@@ -1,11 +1,47 @@
 package transport;
 
 public class PassengerCars extends Transport<CategoryB> implements Transport.Competing {
+
     public PassengerCars(String brand, String model, double engineCapacity) {
         super(brand, model, engineCapacity);
     }
 
     @Override
+    public void getType() {
+
+    }
+    @Override
+    public void printType() {
+        System.out.println("Легковой автомобиль");
+    }
+    enum BodyType {
+        SEDAN("Седан"),
+        HATCHBACK("Хетчбэк"),
+        COMPARTMENT("Купе"),
+        UNIVERSAL("Универсал"),
+        OFFROAD("Внедорожник"),
+        CROSSOVER("Кроссовер"),
+        PICKUP("Пикап"),
+        VAN("Фургон"),
+        MINIVAN("Минивэн");
+
+        private String bodyType;
+
+        public String getBodyType() {
+            return bodyType;
+        }
+
+        BodyType(String bodyType) {
+            this.bodyType = bodyType;
+        }
+
+        @Override
+        public String toString() {
+            return "Тип кузова: " + bodyType;
+        }
+    }
+
+        @Override
     public void startMoving() {
 
     }
@@ -29,4 +65,6 @@ public class PassengerCars extends Transport<CategoryB> implements Transport.Com
     public void maximumSpeed() {
         System.out.println("Максимальная скорость - 150 км/ч");
     }
-}
+
+
+    }

@@ -19,11 +19,27 @@ public class Main {
         Buses bus4 = new Buses("PAZ", "3206", 2.0);
 
         Driver driver1 = new Driver("Ivanov Ivan Ivanovich", "Категория B", 10);
+        Driver driver2 = new Driver("Petrov Peter Petrovich", "Категория С", 5);
+        Driver driver3 = new Driver("Vasiliev Vasily Vasilyevich", "Категория D",15);
 
         car1.pitStop();
         car1.bestLapTime();
         car1.maximumSpeed();
 
+        truck1.pitStop();
+        truck1.bestLapTime();
+        truck1.maximumSpeed();
+
+        bus1.pitStop();
+        bus1.bestLapTime();
+        bus1.maximumSpeed();
+
         System.out.println("Водитель " + driver1 + " управляет автомобилем " + car1 + " и будет участвовать в заезде");
+        System.out.println("Водитель " + driver2 + " управляет автомобилем " + truck1 + " и будет участвовать в заезде");
+        System.out.println("Водитель " + driver3 + " управляет автомобилем " + bus1 + " и будет участвовать в заезде");
+
+        car1.printType();
+        truck1.printType();
+        bus1.printType();
     }
 }
