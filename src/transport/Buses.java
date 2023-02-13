@@ -13,7 +13,7 @@ public class Buses extends Transport<CategoryD> implements Transport.Competing {
 
     }
 
-    enum TypeOfCapacity {
+    public enum TypeOfCapacity {
         ESPECIALLYSMALL(null, 10),
         SMALL(10,25),
         AVERAGE(25,50),
@@ -42,8 +42,9 @@ public class Buses extends Transport<CategoryD> implements Transport.Competing {
         }
     }
 
-    public Buses(String brand, String model, double engineCapacity, Integer typeOfCapacity) {
+    public Buses(String brand, String model, double engineCapacity, TypeOfCapacity typeOfCapacity) {
         super(brand, model, engineCapacity);
+        this.TypeOfCapacity = typeOfCapacity;
     }
 
     @Override
@@ -70,5 +71,15 @@ public class Buses extends Transport<CategoryD> implements Transport.Competing {
     @Override
     public void maximumSpeed() {
         System.out.println("Максимальная скорость - 100 км/ч");
+    }
+
+    @Override
+    public String toString() {
+        return "Buses{" +
+                " brand='" + getBrand() + '\'' +
+                ", model='" + getModel() + '\'' +
+                ", engineCapacity=" + getEngineCapacity() + '\'' +
+                ", TypeOfCapacity=" + TypeOfCapacity +
+                '}';
     }
 }

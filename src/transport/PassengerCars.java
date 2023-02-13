@@ -2,8 +2,9 @@ package transport;
 
 public class PassengerCars extends Transport<CategoryB> implements Transport.Competing {
 
-    public PassengerCars(String brand, String model, double engineCapacity, String bodyType) {
+    public PassengerCars(String brand, String model, double engineCapacity, BodyType bodyType) {
         super(brand, model, engineCapacity);
+        this.BodyType = bodyType;
     }
 
 
@@ -16,7 +17,7 @@ public class PassengerCars extends Transport<CategoryB> implements Transport.Com
     public void printType() {
         System.out.println("Легковой автомобиль");
     }
-    enum BodyType {
+    public enum BodyType {
         SEDAN("Седан"),
         HATCHBACK("Хетчбэк"),
         COMPARTMENT("Купе"),
@@ -67,6 +68,17 @@ public class PassengerCars extends Transport<CategoryB> implements Transport.Com
     public void maximumSpeed() {
         System.out.println("Максимальная скорость - 150 км/ч");
     }
+
+    @Override
+    public String toString() {
+        return "PassengerCars{" +
+                " brand='" + getBrand() + '\'' +
+                ", model='" + getModel() + '\'' +
+                ", engineCapacity=" + getEngineCapacity() + '\'' +
+                ", BodyType=" + BodyType +
+                '}';
+    }
+
 
 
 

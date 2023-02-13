@@ -1,6 +1,9 @@
 package transport;
 
 public abstract class Transport<T extends Driver> {
+    protected PassengerCars.BodyType BodyType;
+    protected Trucks.TypeOfLoadCapacity TypeOfLoadCapacity;
+    protected Buses.TypeOfCapacity TypeOfCapacity;
     private String brand;
     private String model;
     private double engineCapacity;
@@ -63,14 +66,6 @@ public abstract class Transport<T extends Driver> {
     public abstract void getType();
     public abstract void printType();
 
-    @Override
-    public String toString() {
-        return "Transport{" +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", engineCapacity=" + engineCapacity +
-                '}';
-    }
 
     interface Competing {
         void pitStop();

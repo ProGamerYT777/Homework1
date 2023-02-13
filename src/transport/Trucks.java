@@ -13,10 +13,11 @@ public class Trucks extends Transport<CategoryC> implements Transport.Competing 
 
     }
 
-    enum TypeOfLoadCapacity{
+    public enum TypeOfLoadCapacity{
         N1(null, 3.5f),
         N2(3.5f, 12f),
         N3(12f, null);
+
 
         private Float typeOfLoadCapacityMin;
         private Float typeOfLoadCapacityMax;
@@ -40,8 +41,9 @@ public class Trucks extends Transport<CategoryC> implements Transport.Competing 
         }
     }
 
-    public Trucks(String brand, String model, double engineCapacity, Float typeOfLoadCapacity) {
+    public Trucks(String brand, String model, double engineCapacity, TypeOfLoadCapacity typeOfLoadCapacity) {
         super(brand, model, engineCapacity);
+        this.TypeOfLoadCapacity = typeOfLoadCapacity;
     }
 
     @Override
@@ -68,5 +70,15 @@ public class Trucks extends Transport<CategoryC> implements Transport.Competing 
     @Override
     public void maximumSpeed() {
         System.out.println("Максимальная скорость - 90 км/ч");
+    }
+
+    @Override
+    public String toString() {
+        return "Trucks{" +
+                " brand='" + getBrand() + '\'' +
+                ", model='" + getModel() + '\'' +
+                ", engineCapacity=" + getEngineCapacity() + '\'' +
+                ", TypeOfLoadCapacity=" + TypeOfLoadCapacity +
+                '}';
     }
 }
