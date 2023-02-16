@@ -66,11 +66,11 @@ public abstract class Transport<T extends Driver> {
     public abstract void getType();
     public abstract void printType();
 
-
     interface Competing {
         void pitStop();
         void bestLapTime();
         void maximumSpeed();
     }
-}
+        public abstract void passDiagnostics() throws TransportTypeException;
+    }
 

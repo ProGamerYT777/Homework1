@@ -56,6 +56,11 @@ public class Trucks extends Transport<CategoryC> implements Transport.Competing 
         System.out.println("Грузовой автомобиль");
     }
 
+    @Override
+    public void passDiagnostics() {
+        System.out.println("Грузовые автомобили могут проходить диагностику");
+    }
+
 
     @Override
     public void pitStop() {

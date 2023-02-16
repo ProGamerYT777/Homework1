@@ -7,8 +7,6 @@ public class PassengerCars extends Transport<CategoryB> implements Transport.Com
         this.BodyType = bodyType;
     }
 
-
-
     @Override
     public void getType() {
 
@@ -17,6 +15,13 @@ public class PassengerCars extends Transport<CategoryB> implements Transport.Com
     public void printType() {
         System.out.println("Легковой автомобиль");
     }
+
+
+    @Override
+    public void passDiagnostics() {
+        System.out.println("Легковые автомобили могут проходить диагностику");
+    }
+
     public enum BodyType {
         SEDAN("Седан"),
         HATCHBACK("Хетчбэк"),
@@ -54,6 +59,7 @@ public class PassengerCars extends Transport<CategoryB> implements Transport.Com
 
     }
 
+
     @Override
     public void pitStop() {
         System.out.println("Пит-стоп");
@@ -78,9 +84,5 @@ public class PassengerCars extends Transport<CategoryB> implements Transport.Com
                 ", BodyType=" + BodyType +
                 '}';
     }
-
-
-
-
 
     }

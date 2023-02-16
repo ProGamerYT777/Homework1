@@ -57,6 +57,12 @@ public class Buses extends Transport<CategoryD> implements Transport.Competing {
         System.out.println("Автобус");
     }
 
+    @Override
+    public void passDiagnostics() throws TransportTypeException {
+        throw new TransportTypeException("Автобусы диагностику проходить не должны");
+
+    }
+
 
     @Override
     public void pitStop() {

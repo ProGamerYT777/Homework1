@@ -1,7 +1,7 @@
 import transport.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws TransportTypeException {
         PassengerCars car1 = new PassengerCars("BMW",  "M5", 3.0, PassengerCars.BodyType.OFFROAD);
         PassengerCars car2 = new PassengerCars("BMW",  "M2", 1.5, PassengerCars.BodyType.HATCHBACK);
         PassengerCars car3 = new PassengerCars("BMW",  "M6", 4.0, PassengerCars.BodyType.SEDAN);
@@ -45,5 +45,9 @@ public class Main {
         System.out.println(PassengerCars.BodyType.PICKUP);
         System.out.println(Trucks.TypeOfLoadCapacity.N2);
         System.out.println(Buses.TypeOfCapacity.BIG);
+
+        car1.passDiagnostics();
+        truck1.passDiagnostics();
+        bus1.passDiagnostics();
     }
 }
