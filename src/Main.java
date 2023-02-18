@@ -1,5 +1,10 @@
 import transport.*;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class Main {
     public static void main(String[] args) throws TransportTypeException {
         PassengerCars car1 = new PassengerCars("BMW",  "M5", 3.0, PassengerCars.BodyType.OFFROAD);
@@ -48,6 +53,18 @@ public class Main {
 
         car1.passDiagnostics();
         truck1.passDiagnostics();
-        bus1.passDiagnostics();
+//        bus1.passDiagnostics();
+
+        List<String> transport = new ArrayList<>();
+        transport.add("Легковые автомобили");
+        transport.add("Грузовые автомобили");
+        transport.add("Автобусы");
+        System.out.println(transport);
+
+        Queue<String> queueTransport = new LinkedList<>();
+        queueTransport.offer("Легковые автомобили");
+        queueTransport.offer("Грузовые автомобили");
+        System.out.println(queueTransport);
+
     }
 }

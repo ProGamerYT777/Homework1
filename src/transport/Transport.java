@@ -1,5 +1,8 @@
 package transport;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Transport<T extends Driver> {
     protected PassengerCars.BodyType BodyType;
     protected Trucks.TypeOfLoadCapacity TypeOfLoadCapacity;
@@ -64,13 +67,21 @@ public abstract class Transport<T extends Driver> {
     }
 
     public abstract void getType();
+
     public abstract void printType();
 
     interface Competing {
         void pitStop();
+
         void bestLapTime();
+
         void maximumSpeed();
     }
-        public abstract void passDiagnostics() throws TransportTypeException;
-    }
+
+    public abstract void passDiagnostics() throws TransportTypeException;
+
+    List<String> mechanics = new ArrayList<>();
+}
+
+
 
