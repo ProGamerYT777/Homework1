@@ -75,5 +75,16 @@ public class Main {
         for (Map.Entry<PassengerCars, Mechanic> transport1 : carAndMechanic.entrySet()) {
             System.out.println(transport1.getKey() + " - " + transport1.getValue());
         }
+
+        Set<String> drivers = new HashSet<>();
+        drivers.add("Ivan");
+        drivers.add("Peter");
+        drivers.add("Vasily");
+        drivers.add("Dmitry");
+        drivers.add("Peter");
+        Iterator<String> iterDrivers = drivers.iterator();
+        while (iterDrivers.hasNext()) {
+            System.out.println(iterDrivers.next());
+        }
     }
 }
