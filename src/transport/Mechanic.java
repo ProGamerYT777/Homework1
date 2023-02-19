@@ -33,4 +33,13 @@ public class Mechanic {
     public void fixTheCar() {
         System.out.println("Починить машину");
     }
+
+    @Override
+    public String toString() {
+        return "Mechanic{" +
+                "nameAndSurname='" + nameAndSurname + '\'' +
+                ", company='" + company + '\'' +
+                '}';
+    }
 }
+
