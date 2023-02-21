@@ -2,6 +2,7 @@ package transport;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Transport<T extends Driver> {
     protected PassengerCars.BodyType BodyType;
@@ -81,6 +82,19 @@ public abstract class Transport<T extends Driver> {
     public abstract void passDiagnostics() throws TransportTypeException;
 
     List<String> mechanics = new ArrayList<>();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport<?> transport = (Transport<?>) o;
+        return Double.compare(transport.engineCapacity, engineCapacity) == 0 && BodyType == transport.BodyType && TypeOfLoadCapacity == transport.TypeOfLoadCapacity && TypeOfCapacity == transport.TypeOfCapacity && Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model) && Objects.equals(driver, transport.driver) && Objects.equals(mechanics, transport.mechanics);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(BodyType, TypeOfLoadCapacity, TypeOfCapacity, brand, model, engineCapacity, driver, mechanics);
+    }
 }
 
 

@@ -68,11 +68,12 @@ public class Main {
         queueTransport.offer("Грузовые автомобили");
         System.out.println(queueTransport);
 
-        Map<PassengerCars, Mechanic> carAndMechanic = new HashMap<>();
+        Map<Transport<?>, Mechanic> carAndMechanic = new HashMap<>();
         carAndMechanic.put(car1, mechanic1);
-        carAndMechanic.put(car2, mechanic2);
-        carAndMechanic.put(car3, mechanic3);
-        for (Map.Entry<PassengerCars, Mechanic> transport1 : carAndMechanic.entrySet()) {
+        carAndMechanic.put(truck1, mechanic2);
+        carAndMechanic.put(bus1, mechanic3);
+        carAndMechanic.put(car1, mechanic1);
+        for (Map.Entry<Transport<?>, Mechanic> transport1 : carAndMechanic.entrySet()) {
             System.out.println(transport1.getKey() + " - " + transport1.getValue());
         }
 
