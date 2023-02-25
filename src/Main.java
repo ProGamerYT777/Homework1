@@ -1,64 +1,75 @@
+import java.util.Objects;
+
 public class Main {
     public static void main(String[] args) {
-      var dog = 8;
-      var cat = 3.6;
-      var paper = 763789;
-        System.out.println(dog);
-        System.out.println(cat);
-        System.out.println(paper);
+        Predicate<Integer> predicate = new Predicate<Integer>() {
+            @Override
+            public boolean test(Integer num) {
+                if (num > 0) {
+                    return true;
+                }
+                return false;
+            }
+        };
+        System.out.println(predicate.test(2));
+        System.out.println(predicate.test(-1));
 
-        dog = dog + 4;
-        cat = cat + 4;
-        paper = paper + 4;
-        System.out.println(dog);
-        System.out.println(cat);
-        System.out.println(paper);
+        Predicate<Integer> check = t -> t > 0;
+        System.out.println(check.test(4));
+        System.out.println(check.test(-3));
 
-        var dog1 = 8.0;
-        dog1 = dog1 - 3.5;
-        cat = cat - 1.6;
-        paper = paper - 7639;
-        System.out.println(dog1);
-        System.out.println(cat);
-        System.out.println(paper);
+        Consumer<String> consumer = new Consumer<String>() {
+            @Override
+            public void accept(String name) {
+                System.out.println("Hello " + name + "!");
+            }
+        };
+        consumer.accept("Ivan");
+        consumer.accept("Petr");
 
-        var friend = 19;
-        System.out.println(friend);
-        friend = friend + 2;
-        System.out.println(friend);
-        friend = friend / 7;
-        System.out.println(friend);
+        Consumer<String> greetings = t -> System.out.println("Hello " + t + "!");
+        greetings.accept("Elena");
+        greetings.accept("Anna");
 
-        var frog = 3.5;
-        System.out.println(frog);
-        frog = frog * 10;
-        System.out.println(frog);
-        frog = frog / 3.5;
-        System.out.println(frog);
-        frog = frog + 4;
-        System.out.println(frog);
+        Function<Double, Long> function = new Function<Double, Long>() {
+            @Override
+            public Long apply(Double number) {
+                return Math.round(number);
+            }
+        };
+        System.out.println(function.apply(20.2));
+        System.out.println(function.apply(1.9));
 
-        var boxerWeight1 = 78.2;
-        var boxerWeight2 = 82.7;
-        var totalWeight = boxerWeight1 + boxerWeight2;
-      System.out.println("Общий вес двух бойцов " + totalWeight + " кг");
-        var differenceWeight = boxerWeight2 - boxerWeight1;
-      System.out.println("Разница между весами бойцов " + differenceWeight + " кг");
+        Function<Double, Long> changingNumber = t -> Math.round(t);
+        System.out.println(changingNumber.apply(5.7));
+        System.out.println(changingNumber.apply(75.4));
 
-      var differenceWeight1 = boxerWeight2 - boxerWeight1;
-      System.out.println(differenceWeight1);
-      var differenceWeight2 = boxerWeight2 % boxerWeight1;
-      System.out.println(differenceWeight2);
+        Supplier<Integer> randomNumber = new Supplier<Integer>() {
+            @Override
+            public Integer get() {
+                int t = (int) Math.round(Math.random()*100);
+                return t;
+            }
+        };
+        System.out.println(randomNumber.get());
+        System.out.println(randomNumber.get());
 
-      var totalHours = 640;
-      var hoursPerPerson = 8;
-      var totalEmployees = totalHours / hoursPerPerson;
-      System.out.println("Всего работников в компании - " + totalEmployees + " человек");
+        Supplier<Integer> random = () -> (int) (Math.round(Math.random() * 100));
+        System.out.println(random.get());
+        System.out.println(random.get());
 
-      var totalEmployees1 = 80 + 94;
-      var hoursPerPerson1 = totalEmployees1 * hoursPerPerson;
-      System.out.println("Если в компании работает "
-              + totalEmployees1 + " человека, то всего "
-              + hoursPerPerson1 + " часа работы может быть поделено между сотрудниками");
+        Predicate<Object> condition = Objects::isNull;
+        Function<Object, Integer> ifTrue = obj -> 0;
+        Function<CharSequence, Integer> ifFalse = CharSequence::length;
+        Function<String, Integer> result = ternaryOperator(condition, ifTrue, ifFalse);
+
+        System.out.println(result);
+        }
+    public static <T, U> Function<T, U> ternaryOperator(
+            Predicate<? super T> condition,
+            Function<? super T, ? extends U> ifTrue,
+            Function<? super T, ? extends U> ifFalse) {
+
+        return t -> condition.test(t) ? ifTrue.apply(t) : ifFalse.apply(t);
     }
 }
